@@ -1,0 +1,167 @@
+<% layout('layouts/boilerplate') %>
+<div class="container col-md-10 offset-md-3 col-xl-6 offset-xl-3">
+    <form  class="mb-2 align-items-center pls-validate" action="/register" method="POST" novalidate>
+        <div class="card shadow">
+            <img src="https://www.spjain.org/hubfs/events-images/Blood-Donation-Drive/sp-jain-blood-donation-drive-dubai.jpg" alt="camp image" class="card-img-top">
+    
+            <div class="card-body">
+                <h5 class="card-title">Register</h5>
+    
+                <div class=" mb-2">
+                    <label class="form-label" for="username">Name</label>
+                    <input class="form-control" type="text" name="username" id="username" required autofocus>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a username
+                    </div>
+                </div>
+                <div class="mb-2 ">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid email
+                    </div>
+                </div>
+                <div class=" mb-2 ">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" name="password" id="password" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a password
+                    </div>
+                </div>
+            
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="Phone">Contact</label>
+                        <input type="number" class="form-control" value="contact" id="Phone" required>
+                    </div>
+                
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a Contact
+                    </div>
+                </div>
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="orgAddress">Address:</label>
+                        <textarea class="form-control" id="orgAddress" 
+                        value="address"
+                        required></textarea>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a description
+                    </div>
+                </div>
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="State">State:</label>
+                        <input type="text" class="form-control" name="state" id="State" 
+                        required>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a State
+                    </div>
+                </div>
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="City">City:</label>
+                        <input type="text" class="form-control" id="City" name="city" 
+                        required>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a City
+                    </div>
+                </div>
+  
+                    <div class=" mb-2">
+                        <div class="form-group">
+                            <label for="BloodType">Blood Type:</label>
+                            <select class="form-control" id="BloodType" 
+                            name="bloodGroup"
+                            required
+                            >
+                                <option value="O+ve">O+</option>
+                                <option value="O-ve">O-</option>
+                                <option value="A+ve">A+</option>
+                                <option value="A-ve">A-</option>
+                                <option value="AB+ve">AB+</option>
+                                <option value="AB-ve">AB-</option>
+                            </select>
+                        </div>
+                    
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter an option
+                    </div>
+                </div>
+
+           
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="registeredOrg">Are you a donor?</label>
+                        <select  class="form-control" id="registeredOrg" 
+                        name="donor"
+                        required>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid option
+                    </div>
+                </div>
+                <div class=" mb-2">
+                    <div class="form-group">
+                        <label for="receiveNotifications">Would you like to receive notifications about blood donation requests and events?</label>
+                        <select class="form-control" id="receiveNotifications" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid option
+                    </div>
+                </div>
+
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-success">Register</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+
+    
+    
+    </div>
+    <script>
+
+    </script>

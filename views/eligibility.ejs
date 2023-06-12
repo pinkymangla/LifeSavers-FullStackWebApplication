@@ -1,0 +1,102 @@
+<% layout('layouts/boilerplate') %>
+
+  <div class="container">
+    <h2 class="text-center mt-5">Donor Eligibility Form</h2>
+    <form id="eligibilityForm" class="my-3">
+      <div class="mb-3">
+        <label for="weight" class="form-label">Weight (in KGs):</label>
+        <input type="number" id="weight" name="weight" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number" id="age" name="age" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vaccinated" class="form-label">Have you been vaccinated against COVID-19?</label>
+        <select id="vaccinated" name="vaccinated" class="form-select" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="symptoms" class="form-label">Have you had major cold or flu-like symptoms in the last week?</label>
+        <select id="symptoms" name="symptoms" class="form-select" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="hemoglobin_level" class="form-label">Is your Hemoglobin level above 12.5 gms%?</label>
+        <select id="hemoglobin_level" class="form-select" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="history" class="form-label">History of Hepatitis B or C, Rabies, Animal Bite or Typhoid in the last 12 months?</label>
+        <select id="history" class="form-select" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="bp" class="form-label">Any history of Blood Pressure?</label>
+        <select id="bp" class="form-select" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <!-- Add more questions based on the eligibility criteria -->
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('eligibilityForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+  
+    // Get the selected values of the eligibility criteria questions
+    var vaccinated = document.getElementById('vaccinated').value;
+    var symptoms = document.getElementById('symptoms').value;
+    var history = document.getElementById('history').value;
+    var hemoglobin_level = document.getElementById('hemoglobin_level').value;
+    
+    var age = document.getElementById('age').value;
+    var weight = document.getElementById('weight').value;
+
+  // Check if age is above 18
+  if (age < 18) {
+    alert('Sorry, you must be at least 18 years old to donate blood.');
+    return;
+  }
+  if (weight < 50 ) {
+    alert('Sorry, you must be at least 50 Kgs');
+    return;
+  }
+  if (hemoglobin_level ==  "no") {
+    alert('Sorry, you must be at least 12.5 or above hemoglobin level');
+    return;
+  }
+    // Check if any "No" response is selected
+    if (vaccinated === 'no' || symptoms === 'yes' || history === 'yes') {
+      alert('Sorry, you are not eligible to donate based on the provided responses.');
+      return;
+    }
+  
+    // Proceed with form submission if all criteria are met
+    this.submit();
+  });
+  </script>

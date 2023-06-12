@@ -1,0 +1,154 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+<div class="col-md-6 offset-3">
+<h1 class="display-6 text-center">Edit Organisation</h1>
+<form  class="mb-3 pls-validate" action="/campgrounds/<%=camp.id%>?_method=PUT" method="POST" novalidate enctype="multipart/form-data">
+        <div class=" mb-2">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control" type="text" name="campground[title]" id="title" value="<%=camp.title%>" required>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter a Title
+            </div>
+        </div>
+        <div class="mb-2 ">
+            <label class="form-label" for="location">Location</label>
+            <input class="form-control" type="text" name="campground[location]" id="location" value="<%=camp.location%>" required>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter a Location
+            </div>
+        </div>
+
+    
+        <div class=" mb-2 ">
+            <label for="orgType" class="form-label">Organization Type:</label>
+            <div class="input-group">
+                <span class="input-group-text">+</span>  
+            <select id="orgType" class="form-select" name="campground[otype]" required>
+              <option value="Hospitals" 
+              <%if(camp.otype=='Hospitals'){%>selected<%}%>
+              >Hospitals</option>
+              <option value="Non-Profit"
+              <%if(camp.otype=='Non-Profit'){%>selected<%}%>
+              >Non-Profit</option>
+              <option value="Blood Bank"
+              <%if(camp.otype=='Blood Bank'){%>selected<%}%>
+              >Blood Bank</option>
+            </select>
+          
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter a Price
+            </div>
+            </div>
+        </div>
+
+        <div class="mb-2 ">
+            <label class="form-label" for="website">Website</label>
+            <input class="form-control" type="text" name="campground[website]" id="location" value="<%=camp.website%>" required>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter a Location
+            </div>
+        </div>
+
+        <div class=" mb-2 ">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="text" name="campground[description]" id="description" required><%=camp.description%></textarea>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter a Description
+            </div>
+        </div>
+
+        <div class="mb-2 ">
+            <p style="color:Red">Please Update these values</p>
+            <label for="bloodPackets" class="form-label">Number of Packets Available for Each Blood Group:</label>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Blood Group</th>
+                  <th>Number of Packets</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A+</td>
+                  <td><input type="number"
+                      id="aPlusPackets" name="stockAvail[A+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>O+</td>
+                  <td><input type="number" id="oPlusPackets" name="stockAvail[O+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>AB+</td>
+                  <td><input type="number" id="abPlusPackets" name="stockAvail[AB+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>A-</td>
+                  <td><input type="number" id="aMinusPackets" name="stockAvail[A-ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>O-</td>
+                  <td><input type="number" id="oMinusPackets" name="stockAvail[O-ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>AB-</td>
+                  <td><input type="number" id="abMinusPackets" name="stockAvail[AB-ve]" class="form-control"></td>
+                </tr>
+              </tbody>
+            </table>
+         
+
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Location
+        </div>
+    </div>
+  
+        <div class="mb-2">
+            <label class="form-label" for="image">Add More Images</label>
+            <input class="form-control" type="file" name="image" multiple>
+        </div>
+
+        <div >
+            <div class="mb-1">
+                Select Images to delete
+             </div>
+            <%for(let i=0;i< camp.images.length;i++){%>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="check<%=i%>">
+                        <img class="img-thumbnail" src="<%=camp.images[i].thumbnail%>" alt="org image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                        </svg>
+                    </label>
+                    
+                    <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%=camp.images[i].filename%>" id="check<%=i%>">
+                </div>
+            <%}%>
+        </div>
+
+        
+       
+        <button class="btn btn-info">Update Organisation</button>
+</form>
+<a href="/campgrounds/<%=camp._id%>">Back to Organisation</a>
+</div>
+</div>
+
+

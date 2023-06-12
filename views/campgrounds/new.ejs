@@ -1,0 +1,126 @@
+<% layout('layouts/boilerplate') %>
+<div class="container col-md-6">
+    <h1 class="display-6 text-center">New Organisation Registeration</h1>
+<form  class="mb-2 align-items-center pls-validate" action="/campgrounds" method="POST" novalidate enctype="multipart/form-data">
+    
+    <div class=" mb-2">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" name="campground[title]" id="title" required>
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a title
+        </div>
+    </div>
+    <div class="mb-2 ">
+        <label class="form-label" for="location">Location</label>
+        <input class="form-control" type="text" name="campground[location]" id="location" required>
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Location
+        </div>
+    </div>
+
+
+    
+    <div class="mb-2">
+        <label class="form-label" for="image">Add Images</label>
+        <input class="form-control" type="file" name="image" multiple>
+    </div>
+  
+    <div class=" mb-2 ">
+        <label for="orgType" class="form-label">Organization Type:</label>
+        <div class="input-group">
+            <span class="input-group-text">+</span>  
+        <select id="orgType" class="form-select" name="campground[otype]" required>
+          <option value="Hospitals">Hospitals</option>
+          <option value="Non-Profit">Non-Profit</option>
+          <option value="Blood Bank">Blood Bank</option>
+        </select>
+      
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Price
+        </div>
+        </div>
+    </div>
+    <div class="mb-2 ">
+        <label class="form-label" for="website">Website</label>
+        <input class="form-control" type="text" name="campground[website]" id="location" required>
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Location
+        </div>
+    </div>
+    <div class=" mb-2 ">
+        <label class="form-label" for="description">Description</label>
+        <textarea class="form-control" type="text" name="campground[description]" id="description" required></textarea>
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Description
+        </div>
+    </div>
+    <div class="mb-2 ">
+    
+            <label for="bloodPackets" class="form-label">Number of Packets Available for Each Blood Group:</label>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Blood Group</th>
+                  <th>Number of Packets</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A+</td>
+                  <td><input type="number"  id="aPlusPackets" name="stockAvail[A+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>O+</td>
+                  <td><input type="number" id="oPlusPackets" name="stockAvail[O+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>AB+</td>
+                  <td><input type="number" id="abPlusPackets" name="stockAvail[AB+ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>A-</td>
+                  <td><input type="number" id="aMinusPackets" name="stockAvail[A-ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>O-</td>
+                  <td><input type="number" id="oMinusPackets" name="stockAvail[O-ve]" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>AB-</td>
+                  <td><input type="number" id="abMinusPackets" name="stockAvail[AB-ve]" class="form-control"></td>
+                </tr>
+              </tbody>
+            </table>
+         
+
+        <div class="valid-feedback">
+            Looks Good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a Location
+        </div>
+    </div>
+  
+
+
+
+    <button class="btn btn-success">Add Organisation</button>
+</form>
+<a href="/campgrounds">All Resources</a>
+</div>
+
